@@ -4,7 +4,7 @@ import time
 import subprocess
 
 # Connect to the devices
-receiver_device_serial = "192.168.2.92:5555"
+receiver_device_serial = "192.168.2.50:5555"
 receiver_device = ui2.Device(receiver_device_serial)
 time.sleep(2)
 receiver_device(text="Messages").click()
@@ -23,7 +23,7 @@ print("Test case 1 pass")
 ######################################Testcase2#####################################################################
 receiver_device(text="Start chat").click()
 time.sleep(2)
-receiver_device(text="Type names, phone numbers or emails").set_text("AAAAA")
+receiver_device(text="Type names, phone numbers, or emails").set_text("AAAAA")
 time.sleep(2)
 if receiver_device(text="Mobile 084486 97488").exists():
  time.sleep(2)
@@ -138,7 +138,7 @@ receiver_device(text="Messages").click()
 time.sleep(2)
 receiver_device(resourceId="com.google.android.apps.messaging:id/conversation_name", text="Shubham").click()
 time.sleep(2)
-receiver_device(text="RCS message").set_text("THISISSHUBHAMPALSINGH")
+receiver_device(resourceId="com.google.android.apps.messaging:id/compose_message_text").set_text("THISISSHUBHAMPALSINGH")
 time.sleep(2)
 receiver_device(resourceId="com.google.android.apps.messaging:id/send_message_button_container").click()
 time.sleep(4)
@@ -153,7 +153,7 @@ time.sleep(2)
 
 receiver_device(text="Shubham").click()
 time.sleep(2)
-receiver_device(text="RCS message").set_text("THISISSHUBHAMPALSINGH")
+receiver_device(resourceId="com.google.android.apps.messaging:id/compose_message_text").set_text("THISISSHUBHAMPALSINGH")
 time.sleep(2)
 receiver_device(resourceId="com.google.android.apps.messaging:id/send_message_button_container").click()
 time.sleep(2)
@@ -213,9 +213,11 @@ time.sleep(2)
 print("test case 16 pass")
 receiver_device(resourceId="com.android.systemui:id/back").click()
 #############################################Testcase17############################################################################
+receiver_device(text="Messages").click()
+time.sleep(2)
 receiver_device(text="Shubham").click()
 time.sleep(2)
-receiver_device(text="RCS message").click()
+receiver_device(resourceId="com.google.android.apps.messaging:id/compose_message_text").click()
 time.sleep(2)
 receiver_device.xpath('//*[@resource-id="com.google.android.inputmethod.latin:id/key_pos_1_1"]/android.widget.TextView[1]').click()
 time.sleep(2)
@@ -323,13 +325,14 @@ receiver_device(resourceId="com.google.android.apps.messaging:id/compose_message
 time.sleep(2)
 receiver_device(resourceId="com.google.android.apps.messaging:id/send_message_button_container").click()
 time.sleep(2)
+print("Test case 46 pass")
 receiver_device(resourceId="com.android.systemui:id/back").click()
 ##############################################Testcase47######################################################################
 # Click on the "AAAAA" element
 receiver_device(text="AAAAA").click()
 time.sleep(2)  # Wait for 2 seconds
 
-element = receiver_device(text="hellothisis shubham")
+element = receiver_device(text="this is shubham pal singh")
 element.long_click()
 time.sleep(2)
 receiver_device(resourceId="com.google.android.apps.messaging:id/action_bar_overflow").click()
